@@ -1,141 +1,141 @@
-# Proiect Structuri de Date
+# Data Structures Project
 
-Acest proiect implementeaza trei structuri de date in Python:
+This project implements three data structures in Python:
 
-- Lista: lista dublu inlantuita, varianta simpla
-- Heap: heap binar min-heap, varianta simpla
-- Arbore: Treap, varianta avansata
+- List: doubly linked list, simple version
+- Heap: binary min-heap, simple version
+- Tree: Treap, advanced version
 
-Treap-ul este o structura avansata de tip arbore binar de cautare randomizat. El combina proprietatea de BST pentru chei cu proprietatea de heap pentru prioritati.
+The Treap is an advanced randomized binary search tree. It combines the BST property for keys with the heap property for randomly generated priorities.
 
-## Cum se ruleaza
+## How to Run
 
 ```bash
 python3 main.py
 ```
 
-Programul afiseaza un meniu interactiv:
+The program displays an interactive menu:
 
-- `1` ruleaza demonstratia pentru lista dublu inlantuita
-- `2` ruleaza demonstratia pentru heap-ul binar
-- `3` ruleaza demonstratia pentru Treap
-- `0` inchide programul
+- `1` runs the doubly linked list demo
+- `2` runs the binary heap demo
+- `3` runs the Treap demo
+- `0` exits the program
 
-Pentru verificari automate simple:
+For simple automatic checks:
 
 ```bash
 python3 test_structures.py
 ```
 
-## Lista dublu inlantuita
+## Doubly Linked List
 
-Fisier: `doubly_linked_list.py`
+File: `doubly_linked_list.py`
 
-Lista dublu inlantuita foloseste noduri care pastreaza:
+The doubly linked list uses nodes that store:
 
-- `value`: valoarea nodului
-- `prev`: legatura spre nodul anterior
-- `next`: legatura spre nodul urmator
+- `value`: the value stored in the node
+- `prev`: reference to the previous node
+- `next`: reference to the next node
 
-Clasa `DoublyLinkedList` pastreaza referinte catre:
+The `DoublyLinkedList` class stores references to:
 
-- `head`: primul nod
-- `tail`: ultimul nod
-- `size`: numarul de elemente
+- `head`: the first node
+- `tail`: the last node
+- `size`: the number of elements
 
-Operatii implementate:
+Implemented operations:
 
-- `push_front(value)`: insereaza la inceputul listei
-- `push_back(value)`: insereaza la finalul listei
-- `insert(position, value)`: insereaza valoarea pe pozitia data
-- `search(value)`: cauta valoarea si intoarce pozitia ei sau `-1`
-- `delete(value)`: sterge prima aparitie a valorii si intoarce `True` sau `False`
-- `display_forward()`: afiseaza lista de la inceput la final
-- `display_backward()`: afiseaza lista de la final la inceput
+- `push_front(value)`: inserts a value at the beginning of the list
+- `push_back(value)`: inserts a value at the end of the list
+- `insert(position, value)`: inserts a value at a given position
+- `search(value)`: searches for a value and returns its position or `-1`
+- `delete(value)`: deletes the first occurrence of a value and returns `True` or `False`
+- `display_forward()`: prints the list from beginning to end
+- `display_backward()`: prints the list from end to beginning
 
-Complexitati:
+Time complexities:
 
-- Inserare la inceput: `O(1)`
-- Inserare la final: `O(1)`
-- Inserare pe pozitie: `O(n)`
-- Cautare: `O(n)`
-- Stergere dupa valoare: `O(n)`
+- Insert at beginning: `O(1)`
+- Insert at end: `O(1)`
+- Insert at position: `O(n)`
+- Search: `O(n)`
+- Delete by value: `O(n)`
 
-## Heap binar
+## Binary Heap
 
-Fisier: `binary_heap.py`
+File: `binary_heap.py`
 
-Heap-ul binar este implementat ca min-heap folosind un vector. Pentru un element de pe pozitia `i`:
+The binary heap is implemented as a min-heap using an array. For an element at index `i`:
 
-- parintele este la `(i - 1) // 2`
-- copilul stang este la `2 * i + 1`
-- copilul drept este la `2 * i + 2`
+- the parent is at `(i - 1) // 2`
+- the left child is at `2 * i + 1`
+- the right child is at `2 * i + 2`
 
-Proprietatea de min-heap cere ca fiecare parinte sa fie mai mic sau egal decat copiii sai.
+The min-heap property requires every parent to be smaller than or equal to its children.
 
-Operatii implementate:
+Implemented operations:
 
-- `insert(value)`: adauga valoarea la final si reface heap-ul cu `heapify_up`
-- `search(value)`: verifica daca valoarea exista in heap
-- `delete(value)`: sterge prima aparitie a valorii si reface heap-ul
-- `extract_min()`: scoate si intoarce minimul, adica radacina heap-ului
-- `display()`: afiseaza vectorul intern
+- `insert(value)`: adds the value at the end and restores the heap using `heapify_up`
+- `search(value)`: checks whether a value exists in the heap
+- `delete(value)`: deletes the first occurrence of a value and restores the heap
+- `extract_min()`: removes and returns the minimum value, which is the heap root
+- `display()`: prints the internal array
 
-Complexitati:
+Time complexities:
 
-- Inserare: `O(log n)`
-- Cautare: `O(n)`
-- Stergere dupa valoare: `O(n)` pentru gasirea elementului si `O(log n)` pentru refacerea heap-ului
-- Extragere minim: `O(log n)`
+- Insert: `O(log n)`
+- Search: `O(n)`
+- Delete by value: `O(n)` to find the element and `O(log n)` to restore the heap
+- Extract minimum: `O(log n)`
 
 ## Treap
 
-Fisier: `treap.py`
+File: `treap.py`
 
-Treap-ul este un arbore binar de cautare randomizat. Fiecare nod pastreaza:
+A Treap is a randomized binary search tree. Each node stores:
 
-- `key`: cheia folosita pentru proprietatea de BST
-- `priority`: prioritatea randomizata folosita pentru proprietatea de min-heap
-- `left`: subarborele stang
-- `right`: subarborele drept
+- `key`: the key used for the BST property
+- `priority`: the randomized priority used for the min-heap property
+- `left`: the left subtree
+- `right`: the right subtree
 
-Proprietati:
+Properties:
 
-- Pentru chei respecta regula unui BST: cheile mai mici sunt in stanga, cheile mai mari sau egale sunt in dreapta.
-- Pentru prioritati respecta regula unui min-heap: prioritatea unui nod este mai mica sau egala decat prioritatile copiilor.
+- For keys, it follows the BST rule: smaller keys go to the left, greater or equal keys go to the right.
+- For priorities, it follows the min-heap rule: a node's priority is smaller than or equal to the priorities of its children.
 
-Rotatii folosite:
+Rotations used:
 
-- `rotate_left(x)`: ridica fiul drept al nodului `x`
-- `rotate_right(y)`: ridica fiul stang al nodului `y`
+- `rotate_left(x)`: lifts the right child of node `x`
+- `rotate_right(y)`: lifts the left child of node `y`
 
-Operatii implementate:
+Implemented operations:
 
-- `insert_key(key)`: insereaza cheia in Treap
-- `search_key(key)`: cauta cheia si intoarce `True` sau `False`
-- `delete_key(key)`: sterge cheia daca exista
-- `inorder(root)`: afiseaza cheile in ordine crescatoare
-- `to_sorted_list()`: intoarce cheile intr-o lista sortata
+- `insert_key(key)`: inserts a key into the Treap
+- `search_key(key)`: searches for a key and returns `True` or `False`
+- `delete_key(key)`: deletes a key if it exists
+- `inorder(root)`: prints the keys in increasing order
+- `to_sorted_list()`: returns the keys as a sorted list
 
-Complexitati medii:
+Average time complexities:
 
-- Inserare: `O(log n)`
-- Cautare: `O(log n)`
-- Stergere: `O(log n)`
+- Insert: `O(log n)`
+- Search: `O(log n)`
+- Delete: `O(log n)`
 
-Complexitatea poate deveni `O(n)` in cazuri nefavorabile, dar prioritatile randomizate reduc mult probabilitatea unui arbore dezechilibrat.
+The worst-case complexity can become `O(n)`, but randomized priorities greatly reduce the probability of an unbalanced tree.
 
-## Fisiere
+## Files
 
-- `main.py`: meniul interactiv si demonstratiile pentru toate structurile
-- `doubly_linked_list.py`: implementarea listei dublu inlantuite
-- `binary_heap.py`: implementarea heap-ului binar
-- `treap.py`: implementarea Treap-ului
-- `test_structures.py`: verificari automate simple pentru operatiile principale
+- `main.py`: interactive menu and demos for all structures
+- `doubly_linked_list.py`: doubly linked list implementation
+- `binary_heap.py`: binary heap implementation
+- `treap.py`: Treap implementation
+- `test_structures.py`: simple automatic checks for the main operations
 
-## Barem
+## Grading Requirement
 
-Proiectul corespunde variantei pentru nota 10:
+The project matches the requirement for grade 10:
 
-- doua structuri in varianta simpla: lista dublu inlantuita si heap binar
-- o structura in varianta avansata: Treap
+- two simple structures: doubly linked list and binary heap
+- one advanced structure: Treap
