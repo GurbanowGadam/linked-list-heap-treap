@@ -133,9 +133,3 @@ The worst-case complexity can become `O(n)`, but randomized priorities greatly r
 - `treap.py`: Treap implementation
 - `test_structures.py`: simple automatic checks for the main operations
 
-## Grading Requirement
-
-The project matches the requirement for grade 10:
-
-- two simple structures: doubly linked list and binary heap
-- one advanced structure: Treap
