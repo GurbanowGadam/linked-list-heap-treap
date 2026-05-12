@@ -97,17 +97,3 @@ class Treap:
             self.inorder(root.left)
             print(f"{root.key}({root.priority})", end=" ")
             self.inorder(root.right)
-
-    def to_sorted_list(self):
-        result = []
-
-        def visit(node):
-            if node is None:
-                return
-
-            visit(node.left)
-            result.append(node.key)
-            visit(node.right)
-
-        visit(self.root)
-        return result

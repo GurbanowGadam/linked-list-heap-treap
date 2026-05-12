@@ -21,12 +21,6 @@ The program displays an interactive menu:
 - `3` runs the Treap demo
 - `0` exits the program
 
-For simple automatic checks:
-
-```bash
-python3 test_structures.py
-```
-
 ## Doubly Linked List
 
 File: `doubly_linked_list.py`
@@ -115,7 +109,6 @@ Implemented operations:
 - `search_key(key)`: searches for a key and returns `True` or `False`
 - `delete_key(key)`: deletes a key if it exists
 - `inorder(root)`: prints the keys in increasing order
-- `to_sorted_list()`: returns the keys as a sorted list
 
 Average time complexities:
 
@@ -131,5 +124,3 @@ The worst-case complexity can become `O(n)`, but randomized priorities greatly r
 - `doubly_linked_list.py`: doubly linked list implementation
 - `binary_heap.py`: binary heap implementation
 - `treap.py`: Treap implementation
-- `test_structures.py`: simple automatic checks for the main operations
-
